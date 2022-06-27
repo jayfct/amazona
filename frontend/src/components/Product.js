@@ -18,7 +18,13 @@ const Product = (props) => {
         <Card.Text>
           <strong>$ {product.price}</strong>
         </Card.Text>
-        <Button variant="warning">Add to car</Button>
+        {product.countInStock > 0 ? (
+          <Button variant="warning">Add to cart</Button>
+        ) : (
+          <Button variant="danger" disabled>
+            Out of Stock
+          </Button>
+        )}
       </Card.Body>
     </Card>
   );

@@ -18,7 +18,7 @@ function App() {
           </Navbar>
         </header>
         <main>
-          <Container>
+          <Container className="mt-4">
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />}></Route>
               <Route path="/" element={<HomeScreen />} />
