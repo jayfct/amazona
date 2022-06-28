@@ -4,7 +4,9 @@ export const Store = createContext();
 
 const initialState = {
   cart: {
-    cartItems: [],
+    cartItems: localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : [],
   },
 };
 function reducer(state, action) {
@@ -23,8 +25,17 @@ function reducer(state, action) {
           //new quantity(new item): if id not found, just keep the existing item in the cart
           [...state.cart.cartItems, newItem];
       //if not found in eixisting product, add the new item in cart
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
       return { ...state, cart: { ...state.cart, cartItems } };
     //update the store with  the previous state and the updated cart
+
+    case "CART_REMOVE_ITEM": {
+      const cartItems = state.cart.cartItems.filter(
+        (item) => item._id !== action.payload._id
+      );
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      return { ...state, cart: { ...state.cart, cartItems } };
+    }
     default:
       return state;
   }
