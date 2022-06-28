@@ -1,4 +1,21 @@
+import bcrypt from "bcrypt";
+
 const data = {
+  users: [
+    {
+      name: "Admin",
+      email: "admin@example.com",
+      password: bcrypt.hashSync("123456", 10),
+      isAdmin: true,
+    },
+    {
+      name: "Jay",
+      email: "jay@example.com",
+      password: bcrypt.hashSync("123456", 10),
+      isAdmin: false,
+    },
+  ],
+
   products: [
     {
       // _id: "1",
@@ -45,6 +62,20 @@ const data = {
       slug: "adidas-fit-pant",
       category: "Pants",
       image: "/images/p4.jpg",
+      price: 65,
+      countInStock: 5,
+      brand: "Puma",
+      rating: 4.5,
+      numReviews: 10,
+      description: "high quality product",
+    },
+
+    {
+      // _id: "4",
+      name: "TEST",
+      slug: "test",
+      category: "Pants",
+      image: "/images/logo192.png",
       price: 65,
       countInStock: 5,
       brand: "Puma",
