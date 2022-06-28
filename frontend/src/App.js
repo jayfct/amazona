@@ -23,7 +23,10 @@ function App() {
                   Cart
                   {cart.cartItems.length > 0 && (
                     <Badge pill bg="danger">
-                      {cart.cartItems.length}
+                      {cart.cartItems.reduce(
+                        (acc, currentItem) => acc + currentItem.quantity,
+                        0
+                      )}
                     </Badge>
                   )}
                 </Link>
