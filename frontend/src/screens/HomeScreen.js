@@ -22,11 +22,17 @@ const reducer = (state, action) => {
 };
 
 const HomeScreen = () => {
-  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+  const [{ loading, error, products }, dispatch] = useReducer(reducer, {
     products: [],
     loading: true,
     error: "",
   });
+
+  // const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+  //   products: [],
+  //   loading: true,
+  //   error: "",
+  // });
   //   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
