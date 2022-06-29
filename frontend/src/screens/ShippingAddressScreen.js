@@ -14,10 +14,8 @@ import { Store } from "../store";
 const ShippingAddressScreen = () => {
   const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
-  const {
-    userInfo,
-    cart: { shippingAddress },
-  } = state;
+  const { userInfo } = state;
+
   const [fullName, setFullName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");

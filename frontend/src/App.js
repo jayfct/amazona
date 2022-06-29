@@ -11,6 +11,7 @@ import CartScreen from "./screens/CartScreen";
 import SignInScreen from "./screens/SignInScreen";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SignUpScreen from "./screens/SignUpScreen";
+import PaymentScreen from "./screens/PaymentScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -20,6 +21,7 @@ function App() {
     ctxDispatch({ type: "USER_SIGNOUT" });
     localStorage.removeItem("userInfo");
     localStorage.removeItem("shippingAddress");
+    localStorage.removeItem("paymentMethod");
   };
 
   return (
@@ -77,13 +79,16 @@ function App() {
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/signin" element={<SignInScreen />} />
               <Route path="/signup" element={<SignUpScreen />} />
+              <Route path="/payment" element={<PaymentScreen />} />
               <Route path="/shipping" element={<ShippingAddressScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
         </main>
         <footer>
-          <div className="text-center">&copy; All right reserved</div>
+          <div className="text-center">
+            Amazona 2022 &copy; All right reserved
+          </div>
         </footer>
       </div>
     </BrowserRouter>
